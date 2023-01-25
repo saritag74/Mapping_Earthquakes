@@ -1,11 +1,6 @@
 // Add console.log to check to see if our code is working.
 console.log("working");
 
-<<<<<<< Updated upstream
-API_KEY = "pk.eyJ1Ijoic2FyaXRhZzc0IiwiYSI6ImNsY3F4MGU3aTBhY3EzcHF2cjIxMHVnZGcifQ.T0V0REXzVz9Py0z2gYBSFg"
-
-=======
->>>>>>> Stashed changes
 // Create the map object with a center and zoom level.
 let map = L.map('mapid').setView([40.7, -94.5], 4);
 
@@ -15,11 +10,7 @@ let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{
     maxZoom: 18,
     tileSize: 512,
     zoomOffset: -1,
-<<<<<<< Updated upstream
-    accessToken: "pk.eyJ1Ijoic2FyaXRhZzc0IiwiYSI6ImNsY3F4MGU3aTBhY3EzcHF2cjIxMHVnZGcifQ.T0V0REXzVz9Py0z2gYBSSFg"
-=======
     accessToken: API_KEY
->>>>>>> Stashed changes
 });
 // Then we add our 'graymap' tile layer to the map.
 streets.addTo(map);
