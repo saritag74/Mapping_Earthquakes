@@ -31,7 +31,7 @@ let baseMaps = {
 // 1. Add a 3rd layer group for the major earthquake data.
 let allEarthquakes = new L.LayerGroup();
 let tectonicPlates = new L.LayerGroup();
-let majorEarthquakes =  new L.LayerGroup();
+let majorEarthquakes = new L.LayerGroup();
 
 
 // 2. Add a reference to the major earthquake group to the overlays object.
@@ -158,12 +158,21 @@ L.geoJson(data, {
   pointToLayer: function(feature, latlng){ 
     console.log(data);
     return L.circleMarker(latlng);
-  }
-});
+  },
+
+  style: styleInfo,
+
+  onEachFeature: function(feature, layer) {
+    layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
+  }  
+
+}).addTo(majorEarthquakes);
 // 8. Add the major earthquakes layer to the map.
-majorEarthquakes.addTo(map);
+
+ majorEarthquakes.addTo(map);
+
 // 9. Close the braces and parentheses for the major earthquake data.
-});
+ });
 
 // Here we create a legend control object.
 let legend = L.control({
@@ -200,7 +209,7 @@ legend.onAdd = function() {
 
 
   // Use d3.json to make a call to get our Tectonic Plate geoJSON data.
-  d3.json().then(() =>{
+  d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(() =>{
     
     
   });
